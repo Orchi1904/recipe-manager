@@ -1,9 +1,11 @@
 import {defineField, defineType} from 'sanity'
+import {LemonIcon} from '@sanity/icons'
 
 export const recipeType = defineType({
   name: 'recipe',
   title: 'Rezept',
   type: 'document',
+  icon: LemonIcon,
   fields: [
     defineField({
       name: 'title',
@@ -70,4 +72,11 @@ export const recipeType = defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'intro_description',
+      media: 'image',
+    },
+  },
 })
