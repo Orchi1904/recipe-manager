@@ -48,8 +48,26 @@ export const recipeType = defineType({
       name: 'ingredients',
       type: 'array',
       of: [{type: 'ingredient'}],
-      title: 'Zutaten',
+      title: 'Zutaten für eine Portion',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'preparation',
+      type: 'array',
+      title: 'Anleitung',
+      of: [{type: 'block'}],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'Vegan', value: 'vegan'},
+          {title: 'Vegetarisch', value: 'vegetarian'},
+        ],
+      },
     }),
   ],
 })
