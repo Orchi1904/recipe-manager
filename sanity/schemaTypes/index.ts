@@ -1,6 +1,6 @@
 import {heroType} from './heroType'
 import {ingredientType} from './ingredientType'
 import {recipeType} from './recipeType'
-import {pageType} from './pageType'
+import {homepageType} from './homepageType'
 
-export const schemaTypes = [recipeType, ingredientType, pageType, heroType]
+export const schemaTypes = [recipeType, ingredientType, homepageType, heroType]

@@ -4,7 +4,7 @@ import hero from "../public/assets/Hero.jpg";
 export default function Home() {
   return (
     <main className="max-w-7xl mx-auto px-4 border">
-      {/* Todo: Eigene Hero-Komponente erstellen + Sanity für Hero nutzen (https://www.sanity.io/guides/how-to-use-structured-content-for-page-building)*/}
+      {/* Todo: Eigene Hero-Komponente erstellen + Sanity für Hero nutzen -> Immer die neueste Homepage-Version wählen*/}
       <section className="bg-gradient-to-r from-black from-70% to-white rounded-lg relative mt-8">
         <Image
           src={hero}

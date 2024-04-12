@@ -26,10 +26,4 @@ export const heroType = defineType({
       ],
     }),
   ],
-  preview: {
-    select: {
-      title: 'slogan',
-      media: 'image',
-    },
-  },
 })
