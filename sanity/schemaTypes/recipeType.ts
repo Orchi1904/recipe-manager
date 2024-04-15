@@ -27,6 +27,14 @@ export const recipeType = defineType({
       type: 'image',
       title: 'Bild des Rezepts',
       validation: (rule) => rule.required(),
+      fields: [
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alternativtext',
+          validation: (rule) => rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: 'intro_description',

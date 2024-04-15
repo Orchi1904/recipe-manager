@@ -20,7 +20,7 @@ async function Hero() {
         priority
         className="rounded-lg opacity-80 object-cover"
       />
-      <h1 className="absolute flex items-center top-0 left-4 w-[50%] h-full text-xl font-bold text-white line-clamp-1 sm:text-3xl md:text-4xl lg:text-5xl">
+      <h1 className="absolute flex items-center top-0 left-4 w-[50%] h-full text-xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
         {slogan}
       </h1>
     </section>

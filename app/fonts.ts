@@ -1,11 +1,17 @@
-import { Inter, Tilt_Neon } from "next/font/google";
+import { Inter, Permanent_Marker, Tilt_Neon } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-inter'
+  variable: "--font-inter",
 });
 
 export const tiltNeon = Tilt_Neon({
   subsets: ["latin"],
-  variable: '--font-tilt-neon'
+  variable: "--font-tilt-neon",
+});
+
+export const permanentMarker = Permanent_Marker({
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+  weight: "400",
 });
