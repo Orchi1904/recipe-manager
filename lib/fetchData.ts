@@ -8,6 +8,7 @@ export async function getHero() {
         }
       }`;
 
+
   const data = await client.fetch(query);
 
   return data[0].hero;

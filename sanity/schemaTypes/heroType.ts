@@ -9,7 +9,7 @@ export const heroType = defineType({
     defineField({
       name: 'slogan',
       type: 'string',
-      validation: (rule) => rule.max(100),
+      validation: (rule) => rule.max(60),
     }),
     defineField({
       name: 'image',
