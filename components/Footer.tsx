@@ -3,8 +3,6 @@ import { getFooter } from "@/lib/fetchData";
 import SocialMedia from "./SocialMedia";
 import Link from "next/link";
 
-// Todo: Kontaktmöglichkeiten mit Sanity anpassbar machen
-
 async function Footer() {
   const footerData: FooterData = await getFooter();
   console.log(footerData);
