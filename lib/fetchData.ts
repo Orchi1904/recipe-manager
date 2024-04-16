@@ -29,6 +29,13 @@ export async function getRecipePreviews() {
   return data;
 }
 
-export async function getFooter(){
-  
+export async function getFooter() {
+  const query = `*[_type == "footer"]{
+    contact_options_title,
+    contact_options
+  }`;
+
+  const data = await client.fetch(query);
+
+  return data[0];
 }

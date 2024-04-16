@@ -9,7 +9,6 @@ import Link from "next/link";
 
 async function RecipeSection() {
   const recipePreviews: RecipePreview[] = await getRecipePreviews();
-  console.log(recipePreviews);
 
   return (
     <section>
