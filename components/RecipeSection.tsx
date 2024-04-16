@@ -5,6 +5,8 @@ import { urlFor } from "@/sanity/urlFor";
 import TimerIcon from "@mui/icons-material/Timer";
 import Link from "next/link";
 
+// Todo: Fallback implementieren, falls keine Rezepte gefunden wurden
+
 async function RecipeSection() {
   const recipePreviews: RecipePreview[] = await getRecipePreviews();
   console.log(recipePreviews);
