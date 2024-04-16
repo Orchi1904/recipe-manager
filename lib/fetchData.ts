@@ -6,11 +6,11 @@ export async function getHero() {
           slogan,
           image,
         }
-      }`;
+      }[0]`;
 
   const data = await client.fetch(query);
 
-  return data[0].hero;
+  return data.hero;
 }
 
 export async function getRecipePreviews() {
@@ -33,9 +33,25 @@ export async function getFooter() {
   const query = `*[_type == "footer"]{
     contact_options_title,
     contact_options
-  }`;
+  }[0]`;
 
   const data = await client.fetch(query);
 
-  return data[0];
+  return data;
+}
+
+export async function getRecipeFull(slug: string) {
+  const query = `*[_type == "recipe" && slug.current == "${slug}"]{
+    image,
+    title,
+    intro_description,
+    prep_time,
+    rating,
+    ingredients,
+    preparation
+  }[0]`;
+
+  const data = await client.fetch(query);
+
+  return data;
 }

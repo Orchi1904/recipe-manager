@@ -5,7 +5,6 @@ import Link from "next/link";
 
 async function Footer() {
   const footerData: FooterData = await getFooter();
-  console.log(footerData);
 
   return (
     <footer className=" bg-lime-800 text-white">

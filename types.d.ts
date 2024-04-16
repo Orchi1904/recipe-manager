@@ -13,6 +13,21 @@ type RecipePreview = {
   prep_time: number;
 };
 
+type RecipeFull = {
+  title: string;
+  image: SanityImageSource;
+  intro_description: string;
+  rating: number;
+  prep_time: number;
+  preparation: any;
+  ingredients: {
+    amount: number;
+    unit: string;
+    ingredient_name: string;
+    _key: string;
+  }[];
+};
+
 type FooterData = {
   contact_options_title: string;
   contact_options: {

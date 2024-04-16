@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import RecipeSection from "@/components/RecipeSection";
 
-export const revalidate = 10;
+export const revalidate = 1000;
 
 export default function Home() {
   return (
