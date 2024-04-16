@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={`${inter.variable} ${tiltNeon.variable} ${permanentMarker.variable} space-y-4 md:space-y-8`}
+        className={`${inter.variable} ${tiltNeon.variable} ${permanentMarker.variable} grid gap-4 md:gap-8`}
       >
         <Header />
         {children}
