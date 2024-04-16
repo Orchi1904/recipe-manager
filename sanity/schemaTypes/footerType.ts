@@ -16,19 +16,9 @@ export const footerType = defineType({
     }),
     defineField({
       name: 'contact_options',
-      type: 'string',
-      title: 'Social Media Links',
-      options: {
-        list: [
-          {title: 'Facebook', value: 'facebook'},
-          {title: 'GitHub', value: 'github'},
-          {title: 'Instagram', value: 'instagram'},
-          {title: 'LinkedIn', value: 'linkedIn'},
-          {title: 'Pinterest', value: 'pinterest'},
-          {title: 'Twitter', value: 'twitter'},
-          {title: 'YouTube', value: 'youTube'},
-        ],
-      },
+      type: 'array',
+      of: [{type: 'social_media'}],
+      title: 'Kontaktmöglichkeiten',
       validation: (rule) => rule.required(),
     }),
   ],

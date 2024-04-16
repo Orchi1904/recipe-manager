@@ -28,3 +28,7 @@ export async function getRecipePreviews() {
 
   return data;
 }
+
+export async function getFooter(){
+  
+}
