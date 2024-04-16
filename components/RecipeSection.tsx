@@ -25,13 +25,13 @@ async function RecipeSection() {
 
           return (
             <Link href={`/recipe/${item.current_slug}`} key={item.current_slug}>
-              <Card className="h-full">
-                <CardHeader className="px-0 py-0 w-full h-32 sm:h-40 md:h-60 relative">
+              <Card className="h-full group">
+                <CardHeader className="px-0 py-0 w-full h-32 sm:h-40 md:h-60 relative rounded-lg overflow-hidden">
                   <Image
                     src={recipeImage}
                     alt={item.image.alt}
                     fill
-                    className="rounded-lg h-10 w-10 object-cover"
+                    className="h-10 w-10 object-cover md:group-hover:scale-110 md:duration-500"
                   />
                 </CardHeader>
                 <CardContent className="px-2 py-2 space-y-2">
@@ -41,10 +41,11 @@ async function RecipeSection() {
                   <p className="line-clamp-2 hyphens-auto text-sm text-gray-500 leading-4">
                     {item.intro_description}
                   </p>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between sm:justify-start">
                     <div className="border font-bold rounded-full w-7 text-center text-lime-600 border-lime-600">
                       <p>{item.rating}</p>
                     </div>
+                    <span className="hidden sm:block h-7 border border-gray-500 mx-1" />
                     <div className="flex items-center">
                       <TimerIcon className="text-xl text-lime-600 mr-1" />
                       <p className="text-gray-500">{item.prep_time} Min.</p>
