@@ -12,7 +12,7 @@ async function Hero() {
   const slogan = heroData.slogan ? heroData.slogan : sloganFallback;
 
   return (
-    <section className="bg-gradient-to-r from-black from-70% to-white rounded-lg relative mt-4 md:mt-8 h-[160px] sm:h-[220px] md:h-[320px] lg:h-[420px]">
+    <section className="bg-gradient-to-r from-black from-70% to-white rounded-lg relative h-[160px] sm:h-[220px] md:h-[320px] lg:h-[420px]">
       <Image
         src={bgImageUrl}
         alt={alt}

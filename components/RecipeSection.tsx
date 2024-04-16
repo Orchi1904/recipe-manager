@@ -19,10 +19,6 @@ async function RecipeSection() {
         {recipePreviews.map((item) => {
           const recipeImage = urlFor(item.image);
 
-          {
-            /*Next Todo: Ansicht auf größere Seiten optimieren*/
-          }
-
           return (
             <Link href={`/recipe/${item.current_slug}`} key={item.current_slug}>
               <Card className="h-full group">
