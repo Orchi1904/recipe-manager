@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import { inter, tiltNeon, permanentMarker } from "./fonts";
 import Footer from "@/components/Footer";
 
+export const revalidate = 10;
+
 export const metadata: Metadata = {
   title: "Rezept Manager",
   description: "Finde leckere Rezepte!",

@@ -1,7 +1,7 @@
 import {SanityImageSource} from '@sanity/image-url/lib/types/types'
 import {client} from './client'
 import imageUrlBuilder from '@sanity/image-url'
-import {bgImageFallback} from '../fallbacks'
+import {bgImageFallback} from '../helper/fallbacks'
 
 const {projectId, dataset} = client.config()
 

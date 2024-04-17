@@ -23,7 +23,7 @@ export const ingredientType = defineType({
       title: 'Einheit',
       options: {
         list: [
-          {title: 'Stück', value: 'pcs'},
+          {title: 'Stück', value: 'Stück'},
           {title: 'Gramm', value: 'g'},
           {title: 'Kilogramm', value: 'kg'},
           {title: 'Mililiter', value: 'ml'},

@@ -2,8 +2,7 @@ import { getRecipeFull } from "@/lib/fetchData";
 import { urlFor } from "@/sanity/urlFor";
 import Image from "next/image";
 
-/* Todo: Units in Richtige Wörter übertragen + evtl. wechselnde Farben für die li nutzen
-  + Schauen, wie li bei längeren Zutaten aussieht +  404 Seite, wenn kein Rezept mit diesem Slug gefunden werden konnte */
+/* Todo: 404 Seite, wenn kein Rezept mit diesem Slug gefunden werden konnte */
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
@@ -45,17 +44,25 @@ async function Recipe({ params }: { params: { slug: string } }) {
         <hr />
 
         <h2 className="font-marker text-xl">ZUTATEN</h2>
-        {recipeData.ingredients.map((item) => (
-          <ul key={item._key}>
-            <li className="grid grid-cols-3 gap-4">
-              <div className="border col-span-1 text-end">
-                <span>{item.amount}</span>
-                <span>{item.unit}</span>
-              </div>
-              <span className="col-span-2">{item.ingredient_name}</span>
+        <ul>
+          {recipeData.ingredients.map((item) => (
+            <li
+              className="grid grid-cols-3 gap-4 py-1 odd:bg-lime-100"
+              key={item._key}
+            >
+              <span className="col-span-1 text-end flex justify-end items-center">
+                {item.amount} {item.unit}
+              </span>
+              <span className="col-span-2 flex items-center">
+                {item.ingredient_name}
+              </span>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
+
+        <hr />
+
+        <h2 className="font-marker text-xl">ZUBEREITUNG</h2>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { socialMediaLinks } from "@/socialMediaLinks";
+import { socialMediaLinks } from "@/helper/socialMediaLinks";
 
 function SocialMedia({ data }: { data: FooterData }) {
   return (

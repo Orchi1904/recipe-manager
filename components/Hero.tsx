@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getHero } from "@/lib/fetchData";
 import { urlFor } from "@/sanity/urlFor";
-import { bgAltFallback, sloganFallback } from "@/fallbacks";
+import { bgAltFallback, sloganFallback } from "@/helper/fallbacks";
 
 /* Todo: revalidate auf längere Zeit anpassen */
 async function Hero() {
