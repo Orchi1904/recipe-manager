@@ -31,6 +31,7 @@ async function RecipeSection() {
                     className="h-10 w-10 object-cover md:group-hover:scale-110 md:duration-500"
                   />
                 </CardHeader>
+
                 <CardContent className="px-2 py-2 space-y-2 flex-1 flex flex-col">
                   <h3 className="line-clamp-3 font-tilt font-bold text-lg hyphens-auto leading-5">
                     {item.title}
