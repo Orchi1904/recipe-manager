@@ -2,12 +2,17 @@ import { getRecipeFull } from "@/lib/fetchData";
 import { urlFor } from "@/sanity/urlFor";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-/* Todo: 404 Seite, wenn kein Rezept mit diesem Slug gefunden werden konnte + Für große Bildschirme anpassen */
+/* Todo: Für große Bildschirme anpassen */
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
   console.log(recipeData);
+
+  if (!recipeData) {
+    return notFound();
+  }
 
   return (
     <div className="max-w-7xl mx-auto w-full">
