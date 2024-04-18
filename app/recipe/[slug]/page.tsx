@@ -5,8 +5,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import TimerIcon from "@mui/icons-material/Timer";
 
-/* Todo: Entscheiden welche Variante für die Darstellung der Bewertung und der Zeit genutzt wird bzw. ob beide genutzt werden 
-         + Diese Page in Komponenten aufteilen */
+/* Todo: Konstanten für die wichtigsten Farben erstellen
+         + Diese Page in Komponenten aufteilen (Eine Komponente für das Rating und die Zeit mit einstellbarer größe) */
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
@@ -32,34 +32,15 @@ async function Recipe({ params }: { params: { slug: string } }) {
         />
       </div>
 
-      {/*Is visible on small screens*/}
       <div className="px-4 flex flex-col gap-4 md:gap-8 lg:px-32">
-        <div className="flex justify-around md:hidden">
-          <div className="border rounded-xl border-black bg-gray-100 text-center px-2 py-2">
-            <p className="font-bold text-base">Bewertung</p>
-            <p className="font-bold text-2xl text-lime-600">
-              {recipeData.rating}
-            </p>
-            <p className="text-sm text-gray-500">von 10</p>
-          </div>
-          <div className="border rounded-xl border-black bg-gray-100 text-center px-2 py-2">
-            <p className="font-bold">Arbeitszeit</p>
-            <p className="font-bold text-2xl text-lime-600">
-              {recipeData.prep_time}
-            </p>
-            <p className="text-sm text-gray-500">Min.</p>
-          </div>
-        </div>
-
-        {/*Is visible on larger screens*/}
-        <div className="hidden items-center -my-4 md:flex">
-          <div className="flex items-center justify-center border font-bold rounded-full w-12 h-12 text-lime-600 border-lime-600 text-3xl">
+        <div className="flex items-center -my-2 md:-my-6">
+          <div className="flex items-center justify-center border font-bold rounded-full w-9 h-9 text-[#c4b07e] border-[#c4b07e] text-xl">
             <p>{recipeData.rating}</p>
           </div>
-          <span className="h-10 border border-gray-500 mx-2" />
+          <span className="h-8 border border-gray-500 mx-2" />
           <div className="flex items-center">
-            <TimerIcon className="text-2xl text-lime-600 mr-1" />
-            <p className="text-xl">{recipeData.prep_time} Min.</p>
+            <TimerIcon className="text-xl text-[#c4b07e] mr-1" />
+            <p className="text-lg text-gray-500">{recipeData.prep_time} Min.</p>
           </div>
         </div>
 
@@ -67,11 +48,11 @@ async function Recipe({ params }: { params: { slug: string } }) {
 
         <hr />
 
-        <h2 className="font-marker text-xl md:text-2xl">ZUTATEN</h2>
+        <h2 className="font-caveat font-bold text-2xl md:text-3xl">ZUTATEN</h2>
         <ul>
           {recipeData.ingredients.map((item) => (
             <li
-              className="grid grid-cols-3 gap-4 py-1 odd:bg-lime-100 md:gap-8 md:text-lg"
+              className="grid grid-cols-3 gap-4 py-1 odd:bg-[#F7F2ED] md:gap-8 md:text-lg"
               key={item._key}
             >
               <span className="col-span-1 text-end flex justify-end items-center">
@@ -86,8 +67,8 @@ async function Recipe({ params }: { params: { slug: string } }) {
 
         <hr />
 
-        <h2 className="font-marker text-xl md:text-2xl">ZUBEREITUNG</h2>
-        <div className="prose prose-li:marker:text-lime-500 min-w-full md:text-lg">
+        <h2 className="font-caveat font-bold text-2xl md:text-3xl">ZUBEREITUNG</h2>
+        <div className="prose prose-li:marker:text-[#806D47] min-w-full md:text-lg">
           <PortableText value={recipeData.preparation} />
         </div>
       </div>

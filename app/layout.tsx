@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import { inter, tiltNeon, permanentMarker } from "./fonts";
+import { inter, tiltNeon, permanentMarker, caveat } from "./fonts";
 import Footer from "@/components/Footer";
 
 export const revalidate = 10;
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body
-        className={`${inter.variable} ${tiltNeon.variable} ${permanentMarker.variable} grid gap-4 md:gap-8`}
+        className={`${inter.variable} ${tiltNeon.variable} ${permanentMarker.variable} ${caveat.variable} grid gap-4 md:gap-8`}
       >
         <Header />
         {children}

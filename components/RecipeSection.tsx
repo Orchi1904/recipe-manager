@@ -12,7 +12,7 @@ async function RecipeSection() {
 
   return (
     <section>
-      <h2 className="font-marker text-3xl">REZEPTE</h2>
+      <h2 className="font-caveat font-bold text-4xl">REZEPTE</h2>
 
       {/*Todo: Suche, Filter & Co. einbauen*/}
 
@@ -36,17 +36,23 @@ async function RecipeSection() {
                   <h3 className="line-clamp-3 font-tilt font-bold text-lg hyphens-auto leading-5">
                     {item.title}
                   </h3>
+
                   <p className="line-clamp-2 hyphens-auto text-sm text-gray-500 leading-4">
                     {item.intro_description}
                   </p>
-                  <div className="flex justify-between items-end flex-1 sm:justify-start">
-                    <div className="border font-bold rounded-full w-7 text-center text-lime-600 border-lime-600">
-                      <p>{item.rating}</p>
-                    </div>
-                    <span className="hidden sm:block h-7 border border-gray-500 mx-1" />
-                    <div className="flex items-center">
-                      <TimerIcon className="text-xl text-lime-600 mr-1" />
-                      <p className="text-gray-500">{item.prep_time} Min.</p>
+
+                  <div className="flex items-end flex-1">
+                    <div className="flex">
+                      <div className="flex items-center justify-center border font-semibold rounded-full w-7 h-7 text-[#c4b07e] border-[#c4b07e] md:font-bold">
+                        <p>{item.rating}</p>
+                      </div>
+                      <span className="h-6 border border-gray-500 mx-1 md:h-7" />
+                      <div className="flex items-center">
+                        <TimerIcon className="text-lg text-[#c4b07e] mr-1" />
+                        <p className="text-sm text-gray-500">
+                          {item.prep_time} Min.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

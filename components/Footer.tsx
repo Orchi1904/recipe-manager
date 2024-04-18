@@ -7,7 +7,7 @@ async function Footer() {
   const footerData: FooterData = await getFooter();
 
   return (
-    <footer className=" bg-lime-800 text-white">
+    <footer className="bg-[#6E563F] text-white">
       <div className="max-w-7xl mx-auto px-4 py-4 font-bold space-y-4 md:space-y-0 md:flex md:justify-between md:py-8">
         <p className="flex justify-center items-center gap-1 text-2xl">
           Made with

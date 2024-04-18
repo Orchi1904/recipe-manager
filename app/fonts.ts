@@ -1,4 +1,4 @@
-import { Inter, Permanent_Marker, Tilt_Neon } from "next/font/google";
+import { Caveat, Inter, Permanent_Marker, Tilt_Neon } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -14,4 +14,9 @@ export const permanentMarker = Permanent_Marker({
   subsets: ["latin"],
   variable: "--font-permanent-marker",
   weight: "400",
+});
+
+export const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
 });

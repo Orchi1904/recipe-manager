@@ -76,6 +76,7 @@ const config = {
         inter: ["var(--font-inter)"],
         tilt: ["var(--font-tilt-neon)"],
         marker: ["var(--font-permanent-marker)"],
+        caveat: ["var(--font-caveat)"],
       },
     },
   },

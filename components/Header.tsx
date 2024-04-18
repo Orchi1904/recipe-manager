@@ -6,7 +6,7 @@ function Header() {
       <nav className="max-w-7xl mx-auto py-2 px-4 md:py-4">
         <div className="flex justify-center font-bold md:justify-start">
           <Link href="/" className="text-2xl w-fit font-tilt md:text-4xl">
-            Rezept<span className="text-lime-500">Manager</span>
+            Rezept<span className="text-[#c4b07e]">Manager</span>
           </Link>
         </div>
       </nav>
