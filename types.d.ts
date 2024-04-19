@@ -20,12 +20,7 @@ type RecipeFull = {
   rating: number;
   prep_time: number;
   preparation: any;
-  ingredients: {
-    amount: number;
-    unit: string;
-    ingredient_name: string;
-    _key: string;
-  }[];
+  ingredients: Ingredient[];
 };
 
 type FooterData = {
@@ -39,4 +34,11 @@ type FooterData = {
 
 type SocialMediaLinks = {
   [key: string]: (href: string, mapKey?: string) => JSX.Element;
+};
+
+type Ingredient = {
+  amount: number;
+  unit: string;
+  ingredient_name: string;
+  _key: string;
 };

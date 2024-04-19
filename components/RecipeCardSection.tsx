@@ -2,12 +2,12 @@ import { getRecipePreviews } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { urlFor } from "@/sanity/urlFor";
-import TimerIcon from "@mui/icons-material/Timer";
 import Link from "next/link";
+import RecipeRating from "./RecipeRating";
 
 // Todo: Fallback implementieren, falls keine Rezepte gefunden wurden
 
-async function RecipeSection() {
+async function RecipeCardSection() {
   const recipePreviews: RecipePreview[] = await getRecipePreviews();
 
   return (
@@ -42,18 +42,12 @@ async function RecipeSection() {
                   </p>
 
                   <div className="flex items-end flex-1">
-                    <div className="flex">
-                      <div className="flex items-center justify-center border font-semibold rounded-full w-7 h-7 text-[#c4b07e] border-[#c4b07e] md:font-bold">
-                        <p>{item.rating}</p>
-                      </div>
-                      <span className="h-6 border border-gray-500 mx-1 md:h-7" />
-                      <div className="flex items-center">
-                        <TimerIcon className="text-lg text-[#c4b07e] mr-1" />
-                        <p className="text-sm text-gray-500">
-                          {item.prep_time} Min.
-                        </p>
-                      </div>
-                    </div>
+                    <RecipeRating
+                      rating={item.rating}
+                      prepTime={item.prep_time}
+                      ratingStyle="md:font-bold"
+                      dividerStyle="md:h-7"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -65,4 +59,4 @@ async function RecipeSection() {
   );
 }
 
-export default RecipeSection;
+export default RecipeCardSection;
