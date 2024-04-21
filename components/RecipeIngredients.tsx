@@ -7,7 +7,7 @@ function RecipeIngredients({ ingredients }: { ingredients: Ingredient[] }) {
           key={item._key}
         >
           <span className="col-span-1 text-end flex justify-end items-center">
-            {item.amount} {item.unit}
+            {item.amount?.toLocaleString("de-DE")} {item.unit}
           </span>
           <span className="col-span-2 flex items-center">
             {item.ingredient_name}

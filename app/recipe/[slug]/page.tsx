@@ -7,7 +7,7 @@ import RecipeRating from "@/components/RecipeRating";
 import RecipeDetailSection from "@/components/RecipeDetailSection";
 import RecipeIngredients from "@/components/RecipeIngredients";
 
-// Todo: Portionen auswählbar machen
+/* Todo: Portionen auswählbar machen */
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
@@ -51,7 +51,7 @@ async function Recipe({ params }: { params: { slug: string } }) {
         </RecipeDetailSection>
 
         <RecipeDetailSection headline="ZUBEREITUNG">
-          <div className="prose prose-li:marker:text-[#806D47] min-w-full md:text-lg">
+          <div className="prose prose-li:marker:text-rm_detail prose-li:marker:font-semibold prose-h3:font-normal min-w-full md:text-lg">
             <PortableText value={recipeData.preparation} />
           </div>
         </RecipeDetailSection>

@@ -3,7 +3,6 @@ import { getHero } from "@/lib/fetchData";
 import { urlFor } from "@/sanity/urlFor";
 import { bgAltFallback, sloganFallback } from "@/helper/fallbacks";
 
-/* Todo: revalidate auf längere Zeit anpassen */
 async function Hero() {
   const heroData: HeroData = await getHero();
 
