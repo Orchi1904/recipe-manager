@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client";
+import { client } from "./sanityClient";
 
 export async function getHero() {
   const query = `*[_type == "homepage"]{

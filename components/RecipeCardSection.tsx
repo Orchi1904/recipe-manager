@@ -1,7 +1,7 @@
 import { getRecipePreviews } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
-import { urlFor } from "@/sanity/urlFor";
+import { urlFor } from "@/lib/sanityUrlFor";
 import Link from "next/link";
 import RecipeRating from "./RecipeRating";
 import RecipeNotFound from "./RecipeNotFound";

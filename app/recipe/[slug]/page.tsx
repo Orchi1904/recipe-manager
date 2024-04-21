@@ -1,5 +1,5 @@
 import { getRecipeFull } from "@/lib/fetchData";
-import { urlFor } from "@/sanity/urlFor";
+import { urlFor } from "@/lib/sanityUrlFor";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { notFound } from "next/navigation";

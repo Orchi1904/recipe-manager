@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getHero } from "@/lib/fetchData";
-import { urlFor } from "@/sanity/urlFor";
+import { urlFor } from "@/lib/sanityUrlFor";
 import { bgAltFallback, sloganFallback } from "@/helper/fallbacks";
 
 async function Hero() {
