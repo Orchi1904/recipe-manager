@@ -15,7 +15,6 @@ export const ingredientType = defineType({
       name: 'amount',
       type: 'number',
       title: 'Menge',
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'unit',
@@ -30,9 +29,9 @@ export const ingredientType = defineType({
           {title: 'Liter', value: 'l'},
           {title: 'Esslöffel', value: 'EL'},
           {title: 'Teelöffel', value: 'TL'},
+          {title: 'Prise', value: 'Prise'},
         ],
       },
-      validation: (rule) => rule.required(),
     }),
   ],
 })
