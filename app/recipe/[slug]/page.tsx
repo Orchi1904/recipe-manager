@@ -7,8 +7,6 @@ import RecipeRating from "@/components/RecipeRating";
 import RecipeDetailSection from "@/components/RecipeDetailSection";
 import RecipeIngredients from "@/components/RecipeIngredients";
 
-/* Todo: Portionen auswählbar machen */
-
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
 
