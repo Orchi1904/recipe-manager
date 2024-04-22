@@ -4,6 +4,7 @@ import {recipeType} from './recipeType'
 import {homepageType} from './homepageType'
 import {footerType} from './footerType'
 import {socialMediaType} from './socialMediaType'
+import {noRecipeFoundType} from './noRecipeFoundType'
 
 export const schemaTypes = [
   recipeType,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   heroType,
   footerType,
   socialMediaType,
+  noRecipeFoundType,
 ]

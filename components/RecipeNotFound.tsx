@@ -1,11 +1,22 @@
+import {
+  noRecipeFoundHeadlineFallback,
+  noRecipeFoundTextFallback,
+} from "@/helper/fallbacks";
+import { getNoRecipeFoundError } from "@/lib/fetchData";
 
-// Todo: Sanity anbinden
+async function RecipeNotFound() {
+  const noRecipeFoundError: NoRecipeFoundError = await getNoRecipeFoundError();
+  const noRecipeFoundHeadline =
+    noRecipeFoundError.headline ?? noRecipeFoundHeadlineFallback;
+  const noRecipeFoundText =
+    noRecipeFoundError.text ?? noRecipeFoundTextFallback;
 
-function RecipeNotFound() {
   return (
     <div className="flex flex-col gap-4 h-screen mt-14 text-center md:mt-20">
-      <h3 className="font-bold text-2xl md:text-3xl">Der Teller bleibt heute leer!</h3>
-      <p className="md:text-lg">Wir konnten leider keine Rezepte finden...</p>
+      <h3 className="font-bold text-2xl md:text-3xl">
+        {noRecipeFoundHeadline}
+      </h3>
+      <p className="md:text-lg">{noRecipeFoundText}</p>
     </div>
   );
 }
