@@ -1,5 +1,5 @@
 
-// Todo: Sanity anbinden
+// Todo: Sanity anbinden + Fallback + Revalidate wieder zurücksetzen
 
 function RecipeNotFound() {
   return (

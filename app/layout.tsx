@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import { inter, tiltNeon, permanentMarker, caveat } from "./fonts";
 import Footer from "@/components/Footer";
 
-export const revalidate = 60 * 60; //1 hour
+export const revalidate = 10; //1 hour
 
 export const metadata: Metadata = {
   title: "Rezept Manager",

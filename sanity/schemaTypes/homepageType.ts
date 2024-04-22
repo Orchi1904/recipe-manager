@@ -14,6 +14,12 @@ export const homepageType = defineType({
       type: 'hero',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'no_recipe_found',
+      type: 'no_recipe_found',
+      title: 'Rezept nicht gefunden',
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     prepare() {
