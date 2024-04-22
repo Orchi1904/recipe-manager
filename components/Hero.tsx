@@ -7,8 +7,8 @@ async function Hero() {
   const heroData: HeroData = await getHero();
 
   const bgImageUrl = urlFor(heroData.image);
-  const alt = heroData.image.alt ? heroData.image.alt : bgAltFallback;
-  const slogan = heroData.slogan ? heroData.slogan : sloganFallback;
+  const alt = heroData.image.alt ?? bgAltFallback;
+  const slogan = heroData.slogan ?? sloganFallback;
 
   return (
     <section className="bg-gradient-to-r from-black from-80% to-white rounded-lg relative h-[160px] sm:h-[220px] md:h-[320px] lg:h-[420px]">

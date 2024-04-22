@@ -3,6 +3,11 @@ type HeroData = {
   image: SanityImageSource;
 };
 
+type NoRecipeFoundError = {
+  text: string;
+  headline: string;
+};
+
 type RecipePreview = {
   title: string;
   image: SanityImageSource;
