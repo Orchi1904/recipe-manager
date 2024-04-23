@@ -1,20 +1,39 @@
-import { getRecipePreviews } from "@/lib/fetchData";
+import { getRecipePreviews, getSearchPlaceholder } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanityUrlFor";
 import Link from "next/link";
 import RecipeRating from "./RecipeRating";
 import RecipeNotFound from "./RecipeNotFound";
+import Search from "./Search";
+import Fuse from "fuse.js";
 
-async function RecipeCardSection() {
-  const recipePreviews: RecipePreview[] = await getRecipePreviews();
+type Props = {
+  searchTerm: string;
+};
+
+async function RecipeCardSection({ searchTerm }: Props) {
+  const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
+  const searchPlaceholder: string = await getSearchPlaceholder();
+
+  const fuzzySearchOptions = {
+    keys: ["title"],
+    threshold: 0.3,
+    distance: 100,
+  };
+
+  const fuzzySearch = new Fuse(unfilteredRecipePreviews, fuzzySearchOptions);
+  const recipePreviews = searchTerm
+    ? fuzzySearch.search(searchTerm).map((result) => result.item)
+    : unfilteredRecipePreviews;
   const recipesFound = recipePreviews && recipePreviews.length;
 
   return (
     <section>
-      <h2 className="font-caveat font-bold text-4xl">REZEPTE</h2>
+      <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
+      <Search placeholder={searchPlaceholder} />
 
-      {/*Todo: Suche, Filter & Co. einbauen*/}
+      {/*Todo: Filter & Co. einbauen*/}
 
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

@@ -13,6 +13,16 @@ export async function getHero() {
   return data.hero;
 }
 
+export async function getSearchPlaceholder() {
+  const query = `*[_type == "homepage"]{
+    search_recipe_placeholder
+  }[0]`;
+
+  const data = await client.fetch(query);
+
+  return data.search_recipe_placeholder;
+}
+
 export async function getNoRecipeFoundError() {
   const query = `*[_type == "homepage"]{
     no_recipe_found{
