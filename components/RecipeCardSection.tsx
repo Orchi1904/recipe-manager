@@ -33,7 +33,7 @@ async function RecipeCardSection({ searchTerm }: Props) {
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
       <Search placeholder={searchPlaceholder} />
 
-      {/*Todo: Suche, Filter & Co. einbauen*/}
+      {/*Todo: Filter & Co. einbauen*/}
 
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
