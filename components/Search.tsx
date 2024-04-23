@@ -3,6 +3,7 @@
 import { searchPlaceholderFallback } from "@/helper/fallbacks";
 import SearchIcon from "@mui/icons-material/Search";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 type Props = {
@@ -20,6 +21,14 @@ function Search({ placeholder }: Props) {
     term ? params.set("search", term) : params.delete("search");
     replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, 300);
+
+  //Wurde implementiert um das Keyboard auf Mobilgeräten zu verstecken, wenn Enter gedrückt wird
+  const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.currentTarget.blur();
+    }
+  };
 
   return (
     <div className="relative flex items-center">
@@ -40,6 +49,7 @@ function Search({ placeholder }: Props) {
         placeholder={placeholder ?? searchPlaceholderFallback}
         defaultValue={searchParams.get("search")?.toString()}
         onChange={(e) => handleSearchTerm(e.target.value)}
+        onKeyUp={onEnter}
       />
     </div>
   );
