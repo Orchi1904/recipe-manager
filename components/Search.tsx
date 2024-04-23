@@ -38,7 +38,7 @@ function Search({ placeholder }: Props) {
         name="search"
         className="w-full border border-rm_detail focus:border-rm_footer focus:outline-none rounded-xl pl-7 py-1 md:w-1/2 md:my-2 lg:w-1/3"
         placeholder={placeholder ?? searchPlaceholderFallback}
-        defaultValue={searchParams.get("query")?.toString()}
+        defaultValue={searchParams.get("search")?.toString()}
         onChange={(e) => handleSearchTerm(e.target.value)}
       />
     </div>
