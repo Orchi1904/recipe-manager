@@ -15,6 +15,11 @@ export const homepageType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'search_recipe_placeholder',
+      type: 'string',
+      title: 'Platzhalter für die Suche',
+    }),
+    defineField({
       name: 'no_recipe_found',
       type: 'no_recipe_found',
       title: 'Rezept nicht gefunden',

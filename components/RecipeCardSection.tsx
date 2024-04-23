@@ -1,4 +1,4 @@
-import { getRecipePreviews } from "@/lib/fetchData";
+import { getRecipePreviews, getSearchPlaceholder } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanityUrlFor";
@@ -14,6 +14,7 @@ type Props = {
 
 async function RecipeCardSection({ searchTerm }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
+  const searchPlaceholder: string = await getSearchPlaceholder();
 
   const fuzzySearchOptions = {
     keys: ["title"],
@@ -30,7 +31,7 @@ async function RecipeCardSection({ searchTerm }: Props) {
   return (
     <section>
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
-      <Search />
+      <Search placeholder={searchPlaceholder} />
 
       {/*Todo: Suche, Filter & Co. einbauen*/}
 
