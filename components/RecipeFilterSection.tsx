@@ -1,6 +1,7 @@
 "use client";
 
 import Search from "./Search";
+import Sort from "./Sort";
 
 type Props = {
   searchPlaceholder?: string;
@@ -8,8 +9,9 @@ type Props = {
 
 function RecipeFilterSection({ searchPlaceholder }: Props) {
   return (
-    <section>
+    <section className="flex flex-col gap-2">
       <Search placeholder={searchPlaceholder} />
+      <Sort />
     </section>
   );
 }
