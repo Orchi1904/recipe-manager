@@ -1,9 +1,6 @@
-"use client";
-
 import { searchPlaceholderFallback } from "@/helper/fallbacks";
 import SearchIcon from "@mui/icons-material/Search";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 type Props = {

@@ -5,7 +5,7 @@ import { urlFor } from "@/lib/sanityUrlFor";
 import Link from "next/link";
 import RecipeRating from "./RecipeRating";
 import RecipeNotFound from "./RecipeNotFound";
-import Search from "./Search";
+import RecipeFilterSection from "./RecipeFilterSection";
 import Fuse from "fuse.js";
 
 type Props = {
@@ -31,7 +31,7 @@ async function RecipeCardSection({ searchTerm }: Props) {
   return (
     <section>
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
-      <Search placeholder={searchPlaceholder} />
+      <RecipeFilterSection searchPlaceholder={searchPlaceholder} />
 
       {/*Todo: Filter & Co. einbauen*/}
 
