@@ -6,26 +6,18 @@ import Link from "next/link";
 import RecipeRating from "./RecipeRating";
 import RecipeNotFound from "./RecipeNotFound";
 import RecipeFilterSection from "./RecipeFilterSection";
-import Fuse from "fuse.js";
+import { filterRecipes } from "@/helper/filterRecipes";
 
 type Props = {
   searchTerm: string;
+  sorting: string;
 };
 
-async function RecipeCardSection({ searchTerm }: Props) {
+async function RecipeCardSection({ searchTerm, sorting }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
   const searchPlaceholder: string = await getSearchPlaceholder();
 
-  const fuzzySearchOptions = {
-    keys: ["title"],
-    threshold: 0.3,
-    distance: 100,
-  };
-
-  const fuzzySearch = new Fuse(unfilteredRecipePreviews, fuzzySearchOptions);
-  const recipePreviews = searchTerm
-    ? fuzzySearch.search(searchTerm).map((result) => result.item)
-    : unfilteredRecipePreviews;
+  const recipePreviews = filterRecipes(unfilteredRecipePreviews, searchTerm, sorting);
   const recipesFound = recipePreviews && recipePreviews.length;
 
   return (

@@ -40,7 +40,7 @@ export async function getRecipePreviews() {
   const query = `*[_type == "recipe"]{
     title,
     image,
-    _updatedAt,
+    _createdAt,
     "current_slug": slug.current,
     intro_description,
     rating,

@@ -11,7 +11,7 @@ type NoRecipeFoundError = {
 type RecipePreview = {
   title: string;
   image: SanityImageSource;
-  _updatedAt: string;
+  _createdAt: string;
   current_slug: string;
   intro_description: string;
   rating: number;
