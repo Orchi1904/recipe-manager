@@ -9,8 +9,8 @@ type Props = {
 
 function RecipeFilterSection({ searchPlaceholder }: Props) {
   return (
-    <section className="flex flex-col gap-2">
-      <Search placeholder={searchPlaceholder} />
+    <section className="grid gap-2 items-center md:gap-4 md:grid-cols-4">
+      <Search className="md:col-span-2" placeholder={searchPlaceholder} />
       <Sort />
     </section>
   );

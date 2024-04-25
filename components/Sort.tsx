@@ -1,4 +1,4 @@
-// Todo: Aussehen für große Screens implementieren + Sanity anbinden, um Placeholder und Auswahlmöglichkeiten zu bestimmen
+// Todo: Sanity anbinden, um Placeholder und Auswahlmöglichkeiten zu bestimmen
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {

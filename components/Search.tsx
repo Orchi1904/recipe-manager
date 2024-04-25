@@ -4,10 +4,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
 type Props = {
+  className?: string;
   placeholder?: string;
 };
 
-function Search({ placeholder }: Props) {
+function Search({ className, placeholder }: Props) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -28,7 +29,7 @@ function Search({ placeholder }: Props) {
   };
 
   return (
-    <div className="relative flex items-center">
+    <div className={`relative flex items-center ${className}`}>
       <label htmlFor="search" className="sr-only">
         Search
       </label>
@@ -42,7 +43,7 @@ function Search({ placeholder }: Props) {
         type="text"
         id="search"
         name="search"
-        className="w-full border border-rm_detail focus:border-rm_footer focus:outline-none rounded-xl pl-7 py-1 md:w-1/2 md:my-2 lg:w-1/3"
+        className="w-full border border-rm_detail focus:border-rm_footer focus:outline-none rounded-xl pl-7 py-1 md:my-2"
         placeholder={placeholder ?? searchPlaceholderFallback}
         defaultValue={searchParams.get("search")?.toString()}
         onChange={(e) => handleSearchTerm(e.target.value)}
