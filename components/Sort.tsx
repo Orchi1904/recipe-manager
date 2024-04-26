@@ -39,7 +39,19 @@ function Sort({ placeholder, sortValues }: Props) {
           <SelectValue placeholder={placeholder ?? sortPlaceholderFallback} />
         </span>
       </SelectTrigger>
-      <SelectContent>
+      {/* Behebt das Problem, dass sich der Klick auf ein SelectItem auf Mobilgeräten auch auf das 
+          Element darunter auswirkt.
+          Todo: Evtl. Standard-Select nutzen aufgrund dieses Bugs und weil kein eigenes Select-Fenster
+          auf Mobilgeräten geöffnet wird
+      */}
+      <SelectContent
+        ref={(ref) => {
+          if (!ref) return;
+          ref.ontouchstart = (e) => {
+            e.preventDefault();
+          };
+        }}
+      >
         <SelectGroup>
           {sortValues.map((item) => (
             <SelectItem key={item._key} value={item.sort_value}>
