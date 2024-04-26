@@ -1,39 +1,34 @@
-import { getRecipePreviews, getSearchPlaceholder } from "@/lib/fetchData";
+import { getRecipePreviews } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanityUrlFor";
 import Link from "next/link";
 import RecipeRating from "./RecipeRating";
 import RecipeNotFound from "./RecipeNotFound";
-import Search from "./Search";
-import Fuse from "fuse.js";
+import RecipeFilterSection from "./RecipeFilterSection";
+import { filterRecipes } from "@/helper/filterRecipes";
 
 type Props = {
   searchTerm: string;
+  sorting: string;
 };
 
-async function RecipeCardSection({ searchTerm }: Props) {
+async function RecipeCardSection({ searchTerm, sorting }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
-  const searchPlaceholder: string = await getSearchPlaceholder();
 
-  const fuzzySearchOptions = {
-    keys: ["title"],
-    threshold: 0.3,
-    distance: 100,
-  };
-
-  const fuzzySearch = new Fuse(unfilteredRecipePreviews, fuzzySearchOptions);
-  const recipePreviews = searchTerm
-    ? fuzzySearch.search(searchTerm).map((result) => result.item)
-    : unfilteredRecipePreviews;
+  const recipePreviews = filterRecipes(
+    unfilteredRecipePreviews,
+    searchTerm,
+    sorting
+  );
   const recipesFound = recipePreviews && recipePreviews.length;
 
   return (
     <section>
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
-      <Search placeholder={searchPlaceholder} />
+      <RecipeFilterSection />
 
-      {/*Todo: Filter & Co. einbauen*/}
+      {/*Todo: Filter einbauen*/}
 
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

@@ -13,14 +13,16 @@ export async function getHero() {
   return data.hero;
 }
 
-export async function getSearchPlaceholder() {
+export async function getRecipeFilterData() {
   const query = `*[_type == "homepage"]{
-    search_recipe_placeholder
+    search_recipe_placeholder,
+    sort_recipe_placeholder,
+    sort_recipe_values
   }[0]`;
 
   const data = await client.fetch(query);
 
-  return data.search_recipe_placeholder;
+  return data;
 }
 
 export async function getNoRecipeFoundError() {
@@ -40,7 +42,7 @@ export async function getRecipePreviews() {
   const query = `*[_type == "recipe"]{
     title,
     image,
-    _updatedAt,
+    _createdAt,
     "current_slug": slug.current,
     intro_description,
     rating,
