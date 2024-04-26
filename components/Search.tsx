@@ -15,14 +15,14 @@ function Search({ className, placeholder }: Props) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  //Mit Debouncing wird die Suche erst nach einer bestimmten Anzahl an ms durchgeführt
+  // Mit Debouncing wird die Suche erst nach einer bestimmten Anzahl an ms durchgeführt
   const handleSearchTerm = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
     term ? params.set("search", term) : params.delete("search");
     replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, 300);
 
-  //Wurde implementiert um das Keyboard auf Mobilgeräten zu verstecken, wenn Enter gedrückt wird
+  // Wurde implementiert um das Keyboard auf Mobilgeräten zu verstecken, wenn Enter gedrückt wird
   const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
