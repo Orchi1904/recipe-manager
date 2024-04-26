@@ -8,6 +8,12 @@ type NoRecipeFoundError = {
   headline: string;
 };
 
+type RecipeFilterData = {
+  search_recipe_placeholder: string;
+  sort_recipe_placeholder: string;
+  sort_recipe_values: SortRecipeValues[];
+};
+
 type RecipePreview = {
   title: string;
   image: SanityImageSource;
@@ -45,5 +51,12 @@ type Ingredient = {
   amount: number;
   unit: string;
   ingredient_name: string;
+  _key: string;
+};
+
+type SortRecipeValues = {
+  sort_title: string;
+  _type: string;
+  sort_value: string;
   _key: string;
 };

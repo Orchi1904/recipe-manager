@@ -4,7 +4,10 @@ export const bgImageFallback = "/assets/Hero.jpg";
 export const bgAltFallback = "Hero Image";
 
 // Search
-export const searchPlaceholderFallback = "z. B. Nudeln"
+export const searchPlaceholderFallback = "z. B. Nudeln";
+
+// Sort
+export const sortPlaceholderFallback = "Sortierung";
 
 // No recipe found error
 export const noRecipeFoundHeadlineFallback = "Der Teller bleibt heute leer!";

@@ -1,17 +1,20 @@
-"use client";
-
+import { getRecipeFilterData } from "@/lib/fetchData";
 import Search from "./Search";
 import Sort from "./Sort";
 
-type Props = {
-  searchPlaceholder?: string;
-};
+async function RecipeFilterSection() {
+  const recipeFilterData: RecipeFilterData = await getRecipeFilterData();
 
-function RecipeFilterSection({ searchPlaceholder }: Props) {
   return (
     <section className="grid gap-2 items-center md:gap-4 md:grid-cols-4">
-      <Search className="md:col-span-2" placeholder={searchPlaceholder} />
-      <Sort />
+      <Search
+        className="md:col-span-2"
+        placeholder={recipeFilterData.search_recipe_placeholder}
+      />
+      <Sort
+        placeholder={recipeFilterData.sort_recipe_placeholder}
+        sortValues={recipeFilterData.sort_recipe_values}
+      />
     </section>
   );
 }

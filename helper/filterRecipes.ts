@@ -25,10 +25,10 @@ const search = (unsearchedRecipes: RecipePreview[], searchTerm: string) => {
 
 const sort = (unsortedRecipes: RecipePreview[], sorting: string) => {
   switch (sorting) {
-    case "rating":
+    case "best":
       unsortedRecipes.sort((a, b) => b.rating - a.rating);
       break;
-    case "time":
+    case "fastest":
       unsortedRecipes.sort((a, b) => a.prep_time - b.prep_time);
       break;
     default:

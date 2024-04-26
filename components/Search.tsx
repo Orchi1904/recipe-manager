@@ -1,3 +1,5 @@
+"use client";
+
 import { searchPlaceholderFallback } from "@/helper/fallbacks";
 import SearchIcon from "@mui/icons-material/Search";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

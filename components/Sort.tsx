@@ -1,4 +1,4 @@
-// Todo: Sanity anbinden, um Placeholder und Auswahlmöglichkeiten zu bestimmen
+"use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
@@ -10,8 +10,14 @@ import {
   SelectValue,
 } from "./ui/select";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
+import { sortPlaceholderFallback } from "@/helper/fallbacks";
 
-function Sort() {
+type Props = {
+  placeholder?: string;
+  sortValues: SortRecipeValues[];
+};
+
+function Sort({ placeholder, sortValues }: Props) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -30,14 +36,16 @@ function Sort() {
       <SelectTrigger className="w-full rounded-xl border-rm_detail h-[34px] pl-1">
         <span>
           <SwapVertIcon className="text-rm_detail" />
-          <SelectValue placeholder="Sortierung" />
+          <SelectValue placeholder={placeholder ?? sortPlaceholderFallback} />
         </span>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="rating">Bewertung</SelectItem>
-          <SelectItem value="time">Dauer</SelectItem>
-          <SelectItem value="newest">Neueste</SelectItem>
+          {sortValues.map((item) => (
+            <SelectItem key={item._key} value={item.sort_value}>
+              {item.sort_title}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

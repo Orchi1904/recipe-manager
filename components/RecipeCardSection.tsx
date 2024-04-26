@@ -1,4 +1,4 @@
-import { getRecipePreviews, getSearchPlaceholder } from "@/lib/fetchData";
+import { getRecipePreviews } from "@/lib/fetchData";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanityUrlFor";
@@ -15,17 +15,20 @@ type Props = {
 
 async function RecipeCardSection({ searchTerm, sorting }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
-  const searchPlaceholder: string = await getSearchPlaceholder();
 
-  const recipePreviews = filterRecipes(unfilteredRecipePreviews, searchTerm, sorting);
+  const recipePreviews = filterRecipes(
+    unfilteredRecipePreviews,
+    searchTerm,
+    sorting
+  );
   const recipesFound = recipePreviews && recipePreviews.length;
 
   return (
     <section>
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
-      <RecipeFilterSection searchPlaceholder={searchPlaceholder} />
+      <RecipeFilterSection />
 
-      {/*Todo: Filter & Co. einbauen*/}
+      {/*Todo: Filter einbauen*/}
 
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

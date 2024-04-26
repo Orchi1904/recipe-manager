@@ -20,6 +20,18 @@ export const homepageType = defineType({
       title: 'Platzhalter für die Suche',
     }),
     defineField({
+      name: 'sort_recipe_placeholder',
+      type: 'string',
+      title: 'Platzhalter für das Sortierungs-Dropdown',
+    }),
+    defineField({
+      name: 'sort_recipe_values',
+      type: 'array',
+      of: [{type: 'sort'}],
+      title: 'Sortierungsmöglichkeiten',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'no_recipe_found',
       type: 'no_recipe_found',
       title: 'Rezept nicht gefunden',
