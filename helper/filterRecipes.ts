@@ -33,7 +33,7 @@ const sort = (unsortedRecipes: RecipePreview[], sorting: string) => {
       break;
     default:
       return unsortedRecipes.sort(
-        (a, b) => getTime(a._createdAt) - getTime(b._createdAt)
+        (a, b) => getTime(b._createdAt) - getTime(a._createdAt)
       );
   }
 };
