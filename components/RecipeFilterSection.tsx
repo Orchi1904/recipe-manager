@@ -1,6 +1,7 @@
 import { getRecipeFilterData } from "@/lib/fetchData";
 import Search from "./Search";
 import Sort from "./Sort";
+import Filter from "./Filter";
 
 async function RecipeFilterSection() {
   const recipeFilterData: RecipeFilterData = await getRecipeFilterData();
@@ -11,10 +12,13 @@ async function RecipeFilterSection() {
         className="md:col-span-2"
         placeholder={recipeFilterData.search_recipe_placeholder}
       />
-      <Sort
-        placeholder={recipeFilterData.sort_recipe_placeholder}
-        sortValues={recipeFilterData.sort_recipe_values}
-      />
+      <div className="grid gap-2 min-[350px]:grid-cols-2 sm:gap-4 md:col-span-2">
+        <Sort
+          placeholder={recipeFilterData.sort_recipe_placeholder}
+          sortValues={recipeFilterData.sort_recipe_values}
+        />
+        <Filter />
+      </div>
     </section>
   );
 }
