@@ -17,8 +17,8 @@ async function Hero() {
         alt={alt}
         fill
         priority
-        objectFit="cover"
-        className="rounded-lg opacity-75"
+        sizes="(min-width: 1360px) 1248px, calc(94.23vw - 15px)"
+        className="rounded-lg opacity-75 object-cover"
       />
       <h1 className="absolute flex items-center top-0 left-4 w-[50%] h-full text-xl font-medium text-white sm:text-3xl md:text-4xl lg:text-5xl">
         {slogan}

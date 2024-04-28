@@ -46,8 +46,8 @@ async function RecipeCardSection({ searchTerm, sorting }: Props) {
                       src={recipeImage}
                       alt={item.image.alt}
                       fill
-                      objectFit="cover"
-                      className="h-10 w-10 md:group-hover:scale-110 md:duration-500"
+                      sizes="(min-width: 1360px) 295px, (min-width: 1040px) calc(20vw + 27px), (min-width: 780px) calc(33.33vw - 26px), calc(50vw - 28px)"
+                      className="h-10 w-10 object-cover md:group-hover:scale-110 md:duration-500"
                     />
                   </CardHeader>
 

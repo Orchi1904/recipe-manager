@@ -25,9 +25,9 @@ async function Recipe({ params }: { params: { slug: string } }) {
           src={urlFor(recipeData.image)}
           alt={recipeData.image.alt}
           fill
+          sizes="(min-width: 1360px) 1024px, (min-width: 1040px) calc(80vw - 48px), 95.56vw"
           priority
-          objectFit="cover"
-          className="sm:rounded-lg"
+          className="sm:rounded-lg object-cover"
         />
       </div>
 
