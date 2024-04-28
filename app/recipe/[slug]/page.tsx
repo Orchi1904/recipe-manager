@@ -26,7 +26,8 @@ async function Recipe({ params }: { params: { slug: string } }) {
           alt={recipeData.image.alt}
           fill
           priority
-          className="object-cover sm:rounded-lg"
+          objectFit="cover"
+          className="sm:rounded-lg"
         />
       </div>
 
