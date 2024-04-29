@@ -6,6 +6,7 @@ import {footerType} from './footerType'
 import {socialMediaType} from './socialMediaType'
 import {noRecipeFoundType} from './noRecipeFoundType'
 import {sortType} from './sortType'
+import {filterType} from './filterType'
 
 export const schemaTypes = [
   recipeType,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   socialMediaType,
   noRecipeFoundType,
   sortType,
+  filterType,
 ]

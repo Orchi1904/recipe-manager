@@ -32,6 +32,18 @@ export const homepageType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'filter_recipe_placeholder',
+      type: 'string',
+      title: 'Platzhalter für das Filter-Dropdown',
+    }),
+    defineField({
+      name: 'filter_recipe_values',
+      type: 'array',
+      of: [{type: 'filter'}],
+      title: 'Filtermöglichkeiten',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'no_recipe_found',
       type: 'no_recipe_found',
       title: 'Rezept nicht gefunden',
