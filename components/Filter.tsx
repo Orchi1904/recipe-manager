@@ -8,8 +8,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
 import { filterPlaceholderFallback } from "@/helper/fallbacks";
 
-/* Todo: Code in Komponenten aufteilen + nochmal testen  */
-
 type Props = {
   placeholder: string;
   filterValues: FilterRecipeValues[];
