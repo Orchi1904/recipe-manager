@@ -74,6 +74,13 @@ export const recipeType = defineType({
       of: [{type: 'string'}],
       options: {
         list: [
+          {title: 'Frühstück', value: 'breakfast'},
+          {title: 'Mittagessen', value: 'lunch'},
+          {title: 'Abendessen', value: 'dinner'},
+          {title: 'Desserts', value: 'desserts'},
+          {title: 'Getränke', value: 'drinks'},
+          {title: 'Glutenfrei', value: 'gluten_free'},
+          {title: 'Pescetarisch', value: 'pescetarian'},
           {title: 'Vegan', value: 'vegan'},
           {title: 'Vegetarisch', value: 'vegetarian'},
         ],

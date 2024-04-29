@@ -17,7 +17,9 @@ export async function getRecipeFilterData() {
   const query = `*[_type == "homepage"]{
     search_recipe_placeholder,
     sort_recipe_placeholder,
-    sort_recipe_values
+    sort_recipe_values,
+    filter_recipe_placeholder,
+    filter_recipe_values
   }[0]`;
 
   const data = await client.fetch(query);
@@ -46,7 +48,8 @@ export async function getRecipePreviews() {
     "current_slug": slug.current,
     intro_description,
     rating,
-    prep_time
+    prep_time,
+    tags
   }`;
 
   const data = await client.fetch(query);

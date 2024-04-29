@@ -10,6 +10,8 @@ async function Hero() {
   const alt = heroData.image.alt ?? bgAltFallback;
   const slogan = heroData.slogan ?? sloganFallback;
 
+  // Todo: Unnötige Komponenten löschen
+
   return (
     <section className="bg-gradient-to-r from-black from-80% to-gray-400 rounded-lg relative h-[160px] sm:h-[220px] md:h-[320px] lg:h-[420px]">
       <Image

@@ -1,20 +1,20 @@
 import {defineField, defineType} from 'sanity'
 
-export const sortType = defineType({
-  name: 'sort',
-  title: 'Sortierung',
+export const filterType = defineType({
+  name: 'filter',
+  title: 'Filter',
   type: 'object',
   fields: [
     defineField({
-      name: 'sort_title',
+      name: 'filter_title',
       type: 'string',
-      title: 'Name der Sortierung',
+      title: 'Name des Filters',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'sort_value',
+      name: 'filter_value',
       type: 'string',
-      title: 'Name der Sortierung auf englisch, nur Kleinbuchstaben, Leerzeichen mit _ ersetzen!',
+      title: 'Name des Filters auf englisch, nur Kleinbuchstaben, Leerzeichen mit _ ersetzen!',
       validation: (rule) =>
         rule.required().custom((value) => {
           const regex = /^[a-z_]+$/ //Erlaubt nur Kleinbuchstaben

@@ -11,15 +11,17 @@ import { filterRecipes } from "@/helper/filterRecipes";
 type Props = {
   searchTerm: string;
   sorting: string;
+  filters: string[];
 };
 
-async function RecipeCardSection({ searchTerm, sorting }: Props) {
+async function RecipeCardSection({ searchTerm, sorting, filters }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
 
   const recipePreviews = filterRecipes(
     unfilteredRecipePreviews,
     searchTerm,
-    sorting
+    sorting,
+    filters
   );
   const recipesFound = recipePreviews && recipePreviews.length;
 
@@ -27,8 +29,6 @@ async function RecipeCardSection({ searchTerm, sorting }: Props) {
     <section>
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
       <RecipeFilterSection />
-
-      {/*Todo: Filter einbauen*/}
 
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
