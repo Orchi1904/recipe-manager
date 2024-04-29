@@ -6,10 +6,16 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
+import { filterPlaceholderFallback } from "@/helper/fallbacks";
 
-/* Todo: Sanity anbinden + Code in Komponenten aufteilen  */
+/* Todo: Code in Komponenten aufteilen + nochmal testen  */
 
-function Filter() {
+type Props = {
+  placeholder: string;
+  filterValues: FilterRecipeValues[];
+};
+
+function Filter({ placeholder, filterValues }: Props) {
   const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
   const [popoverTriggerWidth, setPopoverTriggerWidth] = useState(0);
 
@@ -73,43 +79,31 @@ function Filter() {
           <div className="flex">
             <TuneIcon className="text-rm_detail" />
             <span className="ml-1 text-sm flex items-center font-normal">
-              Filter
+              {placeholder ?? filterPlaceholderFallback}
             </span>
           </div>
           <ChevronDown className="h-4 w-4 text-rm_detail" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-1" style={{ width: popoverTriggerWidth }}>
-        <label
-          htmlFor="test"
-          className="flex items-center gap-2 rounded-sm py-1.5 accent-rm_detail hover:bg-rm_background text-sm"
-        >
-          <input
-            type="checkbox"
-            id="test"
-            name="test"
-            value="test"
-            checked={selectedFilters.has("test")}
-            onChange={handleFilterSelect}
-            className="ml-1"
-          />
-          Test
-        </label>
-        <label
-          htmlFor="test2"
-          className="flex items-center gap-2 rounded-sm py-1.5 accent-rm_detail hover:bg-rm_background text-sm"
-        >
-          <input
-            type="checkbox"
-            id="test2"
-            name="test2"
-            value="test2"
-            checked={selectedFilters.has("test2")}
-            onChange={handleFilterSelect}
-            className="ml-1"
-          />
-          Test2
-        </label>
+        {filterValues.map((item) => (
+          <label
+            key={item._key}
+            htmlFor={item.filter_value}
+            className="flex items-center gap-2 rounded-sm py-1.5 accent-rm_detail hover:bg-rm_background text-sm"
+          >
+            <input
+              type="checkbox"
+              id={item.filter_value}
+              name={item.filter_value}
+              value={item.filter_value}
+              checked={selectedFilters.has(item.filter_value)}
+              onChange={handleFilterSelect}
+              className="ml-1"
+            />
+            {item.filter_title}
+          </label>
+        ))}
         {selectedFilters.size > 0 && (
           <div>
             <hr className="my-2" />

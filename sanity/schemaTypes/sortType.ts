@@ -17,7 +17,7 @@ export const sortType = defineType({
       title: 'Name der Sortierung auf englisch, nur Kleinbuchstaben, Leerzeichen mit _ ersetzen!',
       validation: (rule) =>
         rule.required().custom((value) => {
-          const regex = /^[a-z]+$/ //Erlaubt nur Kleinbuchstaben
+          const regex = /^[a-z_]+$/ //Erlaubt nur Kleinbuchstaben
           if (value && regex.test(value)) {
             return true
           }

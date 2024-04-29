@@ -30,8 +30,6 @@ async function RecipeCardSection({ searchTerm, sorting, filters }: Props) {
       <h2 className="font-caveat font-bold text-4xl mb-2">REZEPTE</h2>
       <RecipeFilterSection />
 
-      {/*Todo: Filter einbauen*/}
-
       {recipesFound ? (
         <div className="grid gap-5 my-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {recipePreviews.map((item) => {

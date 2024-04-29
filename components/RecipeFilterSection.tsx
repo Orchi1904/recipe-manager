@@ -17,7 +17,10 @@ async function RecipeFilterSection() {
           placeholder={recipeFilterData.sort_recipe_placeholder}
           sortValues={recipeFilterData.sort_recipe_values}
         />
-        <Filter />
+        <Filter
+          placeholder={recipeFilterData.filter_recipe_placeholder}
+          filterValues={recipeFilterData.filter_recipe_values}
+        />
       </div>
     </section>
   );

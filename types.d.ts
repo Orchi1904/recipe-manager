@@ -12,6 +12,8 @@ type RecipeFilterData = {
   search_recipe_placeholder: string;
   sort_recipe_placeholder: string;
   sort_recipe_values: SortRecipeValues[];
+  filter_recipe_placeholder: string;
+  filter_recipe_values: FilterRecipeValues[];
 };
 
 type RecipePreview = {
@@ -59,5 +61,12 @@ type SortRecipeValues = {
   sort_title: string;
   _type: string;
   sort_value: string;
+  _key: string;
+};
+
+type FilterRecipeValues = {
+  filter_title: string;
+  _type: string;
+  filter_value: string;
   _key: string;
 };
