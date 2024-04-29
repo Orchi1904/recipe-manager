@@ -22,6 +22,7 @@ type RecipePreview = {
   intro_description: string;
   rating: number;
   prep_time: number;
+  tags: string[];
 };
 
 type RecipeFull = {

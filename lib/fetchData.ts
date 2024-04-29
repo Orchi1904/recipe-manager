@@ -46,7 +46,8 @@ export async function getRecipePreviews() {
     "current_slug": slug.current,
     intro_description,
     rating,
-    prep_time
+    prep_time,
+    tags
   }`;
 
   const data = await client.fetch(query);

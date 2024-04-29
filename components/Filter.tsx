@@ -5,22 +5,24 @@ import { ChevronDown } from "lucide-react";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Button } from "./ui/button";
 
-/* Todo: Focus hinzufügen bei Tab + Code nochmal durchgehen + Code in Komponenten aufteilen 
-         + Sanity anbinden */
+/* Todo: Sanity anbinden + Code in Komponenten aufteilen  */
 
 function Filter() {
-  const dropdownTriggerRef = useRef<HTMLDivElement>(null);
-  const [dropdownTriggerWidth, setDropdownTriggerWidth] = useState(0);
-  const [selectedFilters, setSelectedFilters] = useState(new Set<string>());
+  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
+  const [popoverTriggerWidth, setPopoverTriggerWidth] = useState(0);
 
   const searchParams = useSearchParams();
+  const [selectedFilters, setSelectedFilters] = useState(
+    new Set<string>(searchParams.get("filter")?.toString().split(","))
+  );
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const updateWidth = () => {
     if (dropdownTriggerRef.current) {
-      setDropdownTriggerWidth(dropdownTriggerRef.current.offsetWidth);
+      setPopoverTriggerWidth(dropdownTriggerRef.current.offsetWidth);
     }
   };
 
@@ -63,18 +65,21 @@ function Filter() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <div
+        <Button
           ref={dropdownTriggerRef}
+          variant="outline"
           className="border rounded-xl border-rm_detail h-[34px] pl-2 pr-3 flex justify-between items-center hover:cursor-pointer"
         >
           <div className="flex">
             <TuneIcon className="text-rm_detail" />
-            <span className="ml-1 text-sm flex items-center">Filter</span>
+            <span className="ml-1 text-sm flex items-center font-normal">
+              Filter
+            </span>
           </div>
           <ChevronDown className="h-4 w-4 text-rm_detail" />
-        </div>
+        </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-1" style={{ width: dropdownTriggerWidth }}>
+      <PopoverContent className="p-1" style={{ width: popoverTriggerWidth }}>
         <label
           htmlFor="test"
           className="flex items-center gap-2 rounded-sm py-1.5 accent-rm_detail hover:bg-rm_background text-sm"

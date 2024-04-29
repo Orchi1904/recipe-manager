@@ -11,15 +11,17 @@ import { filterRecipes } from "@/helper/filterRecipes";
 type Props = {
   searchTerm: string;
   sorting: string;
+  filters: string[];
 };
 
-async function RecipeCardSection({ searchTerm, sorting }: Props) {
+async function RecipeCardSection({ searchTerm, sorting, filters }: Props) {
   const unfilteredRecipePreviews: RecipePreview[] = await getRecipePreviews();
 
   const recipePreviews = filterRecipes(
     unfilteredRecipePreviews,
     searchTerm,
-    sorting
+    sorting,
+    filters
   );
   const recipesFound = recipePreviews && recipePreviews.length;
 
