@@ -54,6 +54,8 @@ async function Recipe({ params }: { params: { slug: string } }) {
             <PortableText value={recipeData.preparation} />
           </div>
         </RecipeDetailSection>
+
+        {/**Todo: Tags hier anzeigen (fontawesome für Icons nutzen)*/}
       </div>
     </div>
   );
