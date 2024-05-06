@@ -35,6 +35,7 @@ type RecipeFull = {
   prep_time: number;
   preparation: any;
   ingredients: Ingredient[];
+  tags: string[];
 };
 
 type FooterData = {
@@ -48,6 +49,10 @@ type FooterData = {
 
 type SocialMediaLinks = {
   [key: string]: (href: string, mapKey?: string) => JSX.Element;
+};
+
+type TagBuilder = {
+  [key: string]: JSX.Element;
 };
 
 type Ingredient = {
