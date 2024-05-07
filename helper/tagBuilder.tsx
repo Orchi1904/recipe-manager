@@ -22,25 +22,25 @@ export const tagBuilder: TagBuilder = {
   lunch: (
     <>
       <FontAwesomeIcon icon={faUtensils} />
-      <span className="text-black">Mittagessen</span>
+      <span style={{ color: "black" }}>Mittagessen</span>
     </>
   ),
   dinner: (
     <>
       <FontAwesomeIcon icon={faMoon} />
-      <span className="text-black">Abendessen</span>
+      <span style={{ color: "black" }}>Abendessen</span>
     </>
   ),
   desserts: (
     <>
       <FontAwesomeIcon icon={faIceCream} />
-      <span className="text-black">Desserts</span>
+      <span style={{ color: "black" }}>Desserts</span>
     </>
   ),
   drinks: (
     <>
       <FontAwesomeIcon icon={faMartiniGlass} />
-      <span className="text-black">Getränke</span>
+      <span style={{ color: "black" }}>Getränke</span>
     </>
   ),
   gluten_free: (
@@ -53,25 +53,25 @@ export const tagBuilder: TagBuilder = {
         />
         <FontAwesomeIcon transform={{ rotate: -45 }} icon={faWheatAwn} />
       </span>
-      <span className="text-black">Glutenfrei</span>
+      <span style={{ color: "black" }}>Glutenfrei</span>
     </>
   ),
   pescetarian: (
     <>
       <FontAwesomeIcon icon={faFish} />
-      <span className="text-black">Pescetarisch</span>
+      <span style={{ color: "black" }}>Pescetarisch</span>
     </>
   ),
   vegan: (
     <>
       <FontAwesomeIcon icon={faSeedling} />
-      <span className="text-black">Vegan</span>
+      <span style={{ color: "black" }}>Vegan</span>
     </>
   ),
   vegetarian: (
     <>
       <FontAwesomeIcon icon={faLeaf} />
-      <span className="text-black">Vegetarisch</span>
+      <span style={{ color: "black" }}>Vegetarisch</span>
     </>
   ),
 };
