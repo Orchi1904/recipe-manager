@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import RecipeRating from "@/components/RecipeRating";
 import RecipeDetailSection from "@/components/RecipeDetailSection";
 import RecipeIngredients from "@/components/RecipeIngredients";
+import Tag from "@/components/Tag";
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
@@ -54,6 +55,13 @@ async function Recipe({ params }: { params: { slug: string } }) {
             <PortableText value={recipeData.preparation} />
           </div>
         </RecipeDetailSection>
+
+        {/**Todo: Tags hier anzeigen (fontawesome für Icons nutzen)*/}
+        <div className="flex flex-wrap gap-2">
+          {recipeData.tags.map((item) => (
+            <Tag key={item} tagName={item}/>
+          ))}
+        </div>
       </div>
     </div>
   );

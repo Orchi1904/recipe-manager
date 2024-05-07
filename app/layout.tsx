@@ -3,6 +3,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { inter, tiltNeon, permanentMarker, caveat } from "./fonts";
 import Footer from "@/components/Footer";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const revalidate = 60 * 60; //1 hour
 

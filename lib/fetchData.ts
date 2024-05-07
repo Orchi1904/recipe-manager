@@ -76,7 +76,8 @@ export async function getRecipeFull(slug: string) {
     prep_time,
     rating,
     ingredients,
-    preparation
+    preparation,
+    tags
   }[0]`;
 
   const data = await client.fetch(query);
