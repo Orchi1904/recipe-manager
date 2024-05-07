@@ -16,7 +16,7 @@ export const tagBuilder: TagBuilder = {
   breakfast: (
     <>
       <FontAwesomeIcon icon={faMugHot} />
-      <span className="text-black">Frühstück</span>
+      <span style={{ color: "black" }}>Frühstück</span>
     </>
   ),
   lunch: (
