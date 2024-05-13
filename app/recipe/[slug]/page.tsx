@@ -55,8 +55,9 @@ async function Recipe({ params }: { params: { slug: string } }) {
             <PortableText value={recipeData.preparation} />
           </div>
         </RecipeDetailSection>
+  
+        {/*Todo: Nährwerttabelle hinzufügen*/}
 
-        {/**Todo: Tags hier anzeigen (fontawesome für Icons nutzen)*/}
         <div className="flex flex-wrap gap-2">
           {recipeData.tags.map((item) => (
             <Tag key={item} tagName={item}/>

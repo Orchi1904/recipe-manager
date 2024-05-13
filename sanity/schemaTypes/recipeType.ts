@@ -68,6 +68,7 @@ export const recipeType = defineType({
       of: [{type: 'block'}],
       validation: (rule) => rule.required(),
     }),
+    // Todo: Nährwerttabelle hinzufügen
     defineField({
       name: 'tags',
       type: 'array',
