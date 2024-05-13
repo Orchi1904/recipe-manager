@@ -12,6 +12,9 @@ export const revalidate = 60 * 60; //1 hour
 export const metadata: Metadata = {
   title: "Rezept Manager",
   description: "Finde leckere Rezepte!",
+  icons: {
+    icon: "/assets/Logo4.svg",
+  }
 };
 
 export default function RootLayout({
