@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export const nutritionFactsType = defineType({
-  name: 'nutritionFacts',
+  name: 'nutrition_facts',
   type: 'object',
   title: 'Nährwerte (pro Portion)',
   fields: [

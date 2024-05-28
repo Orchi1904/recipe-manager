@@ -57,9 +57,8 @@ async function Recipe({ params }: { params: { slug: string } }) {
           </div>
         </RecipeDetailSection>
 
-        {/*Todo: Nährwerttabelle hinzufügen*/}
-        <RecipeDetailSection headline="NÄHRWERTE PRO PORTION">
-          <RecipeNutritionFacts />
+        <RecipeDetailSection headline="NÄHRWERTE" subheadline="- PRO PORTION -">
+          <RecipeNutritionFacts nutritionFacts={recipeData.nutrition_facts} />
         </RecipeDetailSection>
 
         <div className="flex flex-wrap gap-2">

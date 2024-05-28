@@ -1,64 +1,37 @@
-/* Todo: Für größere Bildschirme anpassen (auch bei RecipeIngredients schauen, was da für größere Bildschirme eingestellt wurde )
-         + In Komponenten aufteilen oder mapen (vlt sogar eher mapen)
-         + Tailwind-Klassen überprüfen
-         + - PRO PORTION - als Unterüberschrift für die Recipe Detail Section
-         + Sanity anbinden  */
+import {
+  getFormattedNutritionFacts,
+  translateNutritionName,
+} from "@/helper/nutritionFacts";
 
-function RecipeNutritionFacts() {
-  const calories = 20000;
-  const fat = 20;
-  const carbs = 50000;
-  const protein = 10;
+type Props = {
+  nutritionFacts: NutritionFacts;
+};
+
+function RecipeNutritionFacts({ nutritionFacts }: Props) {
+  const nutritionFactsFormatted = getFormattedNutritionFacts(nutritionFacts);
 
   return (
     <ul className="w-full">
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="col-span-6">Kalorien</span>
+      {nutritionFactsFormatted.map((item) => (
+        <li
+          key={item.name}
+          className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg"
+        >
+          <span
+            className={`${
+              item.name === "saturated_fat" || item.name === "sugar"
+                ? "ml-3"
+                : ""
+            } col-span-6 md:col-span-5 md:pl-44 xl:pl-52`}
+          >
+            {translateNutritionName[item.name as keyof NutritionFacts]}
+          </span>
 
-        <span className="flex justify-end items-center col-span-4">
-          {calories.toLocaleString("de-DE")} kcal
-        </span>
-      </li>
-
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="col-span-6">Fett</span>
-
-        <span className="flex justify-end items-center col-span-4">
-          {fat.toLocaleString("de-DE")} g
-        </span>
-      </li>
-
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="ml-3 col-span-6">davon gesättigt</span>
-
-        <span className="flex justify-end items-center col-span-4">
-          {fat.toLocaleString("de-DE")} g
-        </span>
-      </li>
-
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="col-span-6">Kohlenhydrate</span>
-
-        <span className="flex justify-end items-center col-span-4">
-          {carbs.toLocaleString("de-DE")} g
-        </span>
-      </li>
-
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="ml-3 col-span-6">davon Zucker</span>
-
-        <span className="flex justify-end items-center col-span-4">
-          {fat.toLocaleString("de-DE")} g
-        </span>
-      </li>
-
-      <li className="grid grid-cols-10 gap-2 px-8 py-1 odd:bg-rm_background md:text-lg">
-        <span className="col-span-6">Eiweiß</span>
-
-        <span className="col-span-4 text-end">
-          {protein.toLocaleString("de-DE")} g
-        </span>
-      </li>
+          <span className="flex justify-end items-center col-span-4 md:col-span-5 md:pr-44 xl:pr-52">
+            {item.value.toLocaleString("de-DE")} {item.unit}
+          </span>
+        </li>
+      ))}
     </ul>
   );
 }

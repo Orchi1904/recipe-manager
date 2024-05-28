@@ -35,6 +35,7 @@ type RecipeFull = {
   prep_time: number;
   preparation: any;
   ingredients: Ingredient[];
+  nutrition_facts: NutritionFacts;
   tags: string[];
 };
 
@@ -74,4 +75,13 @@ type FilterRecipeValues = {
   _type: string;
   filter_value: string;
   _key: string;
+};
+
+type NutritionFacts = {
+  calories: number;
+  fat: number;
+  saturated_fat: number;
+  carbohydrates: number;
+  sugar: number;
+  protein: number;
 };

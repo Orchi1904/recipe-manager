@@ -69,8 +69,8 @@ export const recipeType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'nutritionFacts',
-      type: 'nutritionFacts',
+      name: 'nutrition_facts',
+      type: 'nutrition_facts',
       title: 'Nährwerte',
       validation: (rule) => rule.required(),
     }),
