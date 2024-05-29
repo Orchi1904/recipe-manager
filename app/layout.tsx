@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   description: "Finde leckere Rezepte!",
 };
 
+/* Todo: Logo einbauen 
+         + Möglichkeit, Zutaten durchzustreichen
+         + Randomisierte Rezepte
+         + Preis eines Rezepts
+         + Ähnliche Rezepte
+*/
+
 export default function RootLayout({
   children,
 }: Readonly<{
