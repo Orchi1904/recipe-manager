@@ -7,7 +7,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-export const revalidate = 10; //1 hour
+export const revalidate = 60 * 60; //1 hour
 
 export const metadata: Metadata = {
   title: "Rezept Manager",
