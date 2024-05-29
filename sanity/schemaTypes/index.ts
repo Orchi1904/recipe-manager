@@ -7,6 +7,7 @@ import {socialMediaType} from './socialMediaType'
 import {noRecipeFoundType} from './noRecipeFoundType'
 import {sortType} from './sortType'
 import {filterType} from './filterType'
+import {nutritionFactsType} from './nutritionFactsType'
 
 export const schemaTypes = [
   recipeType,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   noRecipeFoundType,
   sortType,
   filterType,
+  nutritionFactsType,
 ]

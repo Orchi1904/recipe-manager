@@ -7,6 +7,7 @@ import RecipeRating from "@/components/RecipeRating";
 import RecipeDetailSection from "@/components/RecipeDetailSection";
 import RecipeIngredients from "@/components/RecipeIngredients";
 import Tag from "@/components/Tag";
+import RecipeNutritionFacts from "@/components/RecipeNutritionFacts";
 
 async function Recipe({ params }: { params: { slug: string } }) {
   const recipeData: RecipeFull = await getRecipeFull(params.slug);
@@ -56,10 +57,13 @@ async function Recipe({ params }: { params: { slug: string } }) {
           </div>
         </RecipeDetailSection>
 
-        {/**Todo: Tags hier anzeigen (fontawesome für Icons nutzen)*/}
+        <RecipeDetailSection headline="NÄHRWERTE" subheadline="- PRO PORTION -">
+          <RecipeNutritionFacts nutritionFacts={recipeData.nutrition_facts} />
+        </RecipeDetailSection>
+
         <div className="flex flex-wrap gap-2">
           {recipeData.tags.map((item) => (
-            <Tag key={item} tagName={item}/>
+            <Tag key={item} tagName={item} />
           ))}
         </div>
       </div>

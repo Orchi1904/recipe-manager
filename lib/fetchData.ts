@@ -77,6 +77,14 @@ export async function getRecipeFull(slug: string) {
     rating,
     ingredients,
     preparation,
+    nutrition_facts{
+      calories,
+      fat,
+      saturated_fat,
+      carbohydrates,
+      sugar,
+      protein
+    },
     tags
   }[0]`;
 
