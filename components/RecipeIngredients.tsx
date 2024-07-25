@@ -22,7 +22,7 @@ function RecipeIngredients({ ingredients }: { ingredients: Ingredient[] }) {
               key={item._key}
             >
               <span className="col-span-1 text-end flex justify-end items-center">
-                <span className="text-start justify-center flex-1 ml-2 xsm:ml-4 sm:ml-6 md:ml-8 lg:ml-10">
+                <span className="text-start flex items-center flex-1 ml-2 xsm:ml-4 sm:ml-6 md:ml-8 lg:ml-10">
                   <input
                     type="checkbox"
                     className="accent-rm_footer hover:cursor-pointer"
